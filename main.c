@@ -11,21 +11,15 @@
 
 struct player {
   int id;
-  char nome[20]
+  char nome[20];
 };
-
-typedef struct cartas {
-  int num;
-  int naipe;
-} Cartas;
 
 int main() {
 
   Cartas *deck = malloc(sizeof(Cartas) * 65);
-  deck[0].naipe = 1;
-  deck[0].num = 1;
 
-  printf("%d", deck[0].num);
+  gerarDeck(deck);
+  shuffle(deck, 65);
 
   return 0;
 }
