@@ -8,7 +8,10 @@
 typedef struct cartas {
   int num;
   int naipe;
+  struct cartas *Proximo;
 } Cartas;
+
+typedef struct cartas TCartas;
 
 char *naipes[5] = {"Pedra", "Papel", "Tesoura", "Lagarto", "Spock"};
 int cartas[13] = {1,2,3,4,5,6,7,8,9,10,11,12,13};
@@ -24,6 +27,7 @@ void gerarDeck(Cartas *deck) {
   }
 }
 
+// embaralha o deck
 void shuffle(Cartas *deck, size_t n)
 {
   if (n > 1)
@@ -39,6 +43,15 @@ void shuffle(Cartas *deck, size_t n)
     }
   }
 }
-// embaralha o deck
+
+int semCartas(TCartas *Lista)
+{
+  if(Lista->Proximo == NULL)
+    return 1;
+  else
+    return 0;
+}
+
+
 
 #endif //JOGO_CARTAS_CARTAS_H
