@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include "structs.h"
 #include "menu.h"
 #include "cartas.h"
 #include "jogadores.h"
@@ -13,16 +14,13 @@
 
 int main() {
 
-  Cartas *deck = malloc(sizeof(Cartas) * 65);
+  TCartas *deck = (TCartas *) malloc(sizeof(TCartas));
   Lista *Jogadores = (Lista *) malloc(sizeof(Lista));
 
   iniciaListaJogadores(Jogadores);
   addJogadores(Jogadores);
 
   gerarDeck(deck);
-  shuffle(deck, 65);
-
-  //  inserirCarta(jogadores[0]);
-  imprimir(Jogadores);
+  adicionarCartaAosJogadores(Jogadores, deck);
   return 0;
 }
